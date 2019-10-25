@@ -1,0 +1,19 @@
+{
+  "name": "intellicar-api-platform",
+  "main": "platformapi.js",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "~1.15.2",
+    "cassandra-driver": "^3.1.3",
+    "compression": "^1.6.2",
+    "express": "~4.14.0",
+    "jsonwebtoken": "~7.1.7",
+    "morgan": "~1.7.0",
+    "mqtt": "^1.14.0",
+    "mysql": "~2.11.1",
+    "q": "^1.4.1",
+    "socket.io": "^1.4.8",
+    "request": "~2.75.0",
+    "geolib": "2.0.24"
+  }
+}
