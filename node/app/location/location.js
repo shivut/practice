@@ -30,7 +30,7 @@ exports.getLastLocation = function(req, callback) {
 
         } else {
             msg = "Get lastlocation failed";
-            callback(msg, data, msg);
+            callback(msg, data, msg, err["responsecode"]);
         }
     });
 };
@@ -69,7 +69,7 @@ exports.getLocationHistory = function (req, callback) {
 
         } else {
             msg = "Get lastlocation failed";
-            callback(msg, data, msg);
+            callback(msg, data, msg, err["responsecode"]);
         }
     });
 };
@@ -93,7 +93,7 @@ exports.getDistance = function(req, callback) {
 
         } else {
             msg = "Get distance failed";
-            callback(msg, data, msg);
+            callback(msg, data, msg, err["responsecode"]);
         }
     });
 };
@@ -143,7 +143,7 @@ exports.getVehiclesByLatLng = function(req, callback) {
 
         } else {
             msg = "Get nearby vehicles failed";
-            callback(msg, data, msg);
+            callback(msg, data, msg, err["responsecode"]);
         }
     });
 };
