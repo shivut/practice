@@ -19,17 +19,21 @@ exports.forbidReply = function(data, msg, res){
 };
 
 exports.authFailure = function(msg, res){
-    res.status(401).send({"status":"FAILURE", "data":null, "err":{}, "msg":msg});
+    res.status(401).send({"status":"FAILURE", "data":null, "err":{}, "msg":"Authentication Failure"});
 };
 
 exports.generalCallback = function(res){
-    return function(err, data, msg){
-        if (err)
+    let statuscode = res.statusCode
+    return function(err, data, msg, statuscode){
+        if (err && res.statusCode == 401)
+            exports.authFailure(msg, res)
+        else if (err)
             exports.failReply(err, msg, res);
         else
             exports.succReply(data, msg, res);
     };
 };
+
 
 exports.checkallkeys = function(reqobj, reqkeys){
     let missingArgs = []
