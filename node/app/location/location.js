@@ -86,12 +86,8 @@ exports.getDistance = function(req, callback) {
         if (!err) {
 
             let distance = data.distance;
-            let startodo = data.startodo;
-            let endodo = data.endodo;
-            let starttime = data.starttime;
-            let endtime = data.endtime;
             
-            let distanceInfo = { distance, startodo, endodo, starttime, endtime }
+            let distanceInfo = { distance }
 
             callback(null, distanceInfo, "Get distance successfull");
 
