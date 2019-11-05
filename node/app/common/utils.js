@@ -24,7 +24,7 @@ exports.authFailure = function(msg, res){
 
 exports.generalCallback = function(res){
     return function(err, data, msg, statuscode){
-        if (err && res.statusCode == 401)
+        if (err && statuscode == 401)
             exports.authFailure(msg, res)
         else if (err)
             exports.failReply(err, msg, res);
