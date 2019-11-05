@@ -215,7 +215,7 @@ exports.fireAPI = function(apiroute, reqjson, callback) {
         } else {
             console.log("Error " + JSON.stringify(body));
             console.log("Error " + err);
-            let obj = {"err" : err, "statuscode" : response.statusCode}
+            let obj = {"err" : err, "responsecode" : response.statusCode}
             callback(obj, null, body);
         }
     });
