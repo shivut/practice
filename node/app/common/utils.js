@@ -23,7 +23,6 @@ exports.authFailure = function(msg, res){
 };
 
 exports.generalCallback = function(res){
-    let statuscode = res.statusCode
     return function(err, data, msg, statuscode){
         if (err && res.statusCode == 401)
             exports.authFailure(msg, res)
