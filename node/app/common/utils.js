@@ -25,7 +25,7 @@ exports.authFailure = function(msg, res){
 exports.generalCallback = function(res){
     return function(err, data, msg, statuscode){
         if (err && statuscode == 401)
-            exports.authFailure(msg, res)
+            exports.authFailure(msg, res);
         else if (err)
             exports.failReply(err, msg, res);
         else
@@ -196,26 +196,26 @@ exports.fireAPI = function(apiroute, reqjson, callback) {
         json: reqjson
     };
 
-    // console.log("*********************************");
-    // console.log(requrl);
-    // console.log(JSON.stringify(reqjson));
-    // console.log("*********************************");
+     //console.log("*********************************");
+     //console.log(requrl);
+     //console.log(JSON.stringify(reqjson));
+     //console.log("*********************************");
 
     request(options, function (err, response, body) {
+	//console.log("err " + JSON.stringify(err))
+	//console.log("respon" + JSON.stringify(response))
         if (!err){
-
             if (response.statusCode != 200) {
-                console.log("Error " + JSON.stringify(body));
-                callback(body.msg, null, body.msg);
+                //console.log("Error " + JSON.stringify(body));
+		let obj = {"err" : err, "responsecode" : response.statusCode}
+                callback(obj, null, body.msg);
             } else {
                 callback(null, body.data, body.msg);
             }
 
         } else {
-            console.log("Error " + JSON.stringify(body));
-            console.log("Error " + err);
             let obj = {"err" : err, "responsecode" : response.statusCode}
-            callback(obj, null, body);
+            callback(err, null, "Error msg");
         }
     });
 };
