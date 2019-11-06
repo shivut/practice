@@ -83,6 +83,7 @@ exports.getDistance = function(req, callback) {
     let reqjson = { token, vehicleno, starttime, endtime}
 
     utils.fireAPI("/api/reports/getdistanceforvehno", reqjson, function(err, data, msg) {
+	//console.log(err, data, msg);
         if (!err) {
 
             let distance = data.distance;
